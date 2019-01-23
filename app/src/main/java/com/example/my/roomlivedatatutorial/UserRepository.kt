@@ -7,9 +7,4 @@ class UserRepository(private val userDao: UserDao) {
 
     val allUsers: LiveData<List<User>> = userDao.getAllUsersLiveData()
 
-    @WorkerThread // Spécifie que cette méthode doit être appelée depuis un thread non UI
-    suspend fun insert(user: User){
-        userDao.insertUsers(user)
-    }
-
 }
